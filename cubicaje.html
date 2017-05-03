@@ -51,28 +51,53 @@
 		</div>
 
 		<div data-role="content">
-			<div class="ui-grid-a">
+			<div class="ui-grid-b">
 				<div class="ui-block-a">
 
 					<label for="largo_pale">Largo palé:</label>
-					<input name="largo_pale" id="largo_pale" min="0" max="1200" value="1200" step="10" type="range">
+					<input name="largo_pale"
+						   data-highlight="true"
+						   id="largo_pale" min="0" max="1200"
+						   value="1200" step="10" type="range">
 				</div>
 				<div class="ui-block-b">
 					<label for="ancho_pale">Ancho palé:</label>
-					<input name="ancho_pale" id="ancho_pale" min="0" max="1200" value="1000" step="10" type="range">
+					<input name="ancho_pale" data-highlight="true"
+						id="ancho_pale" min="0" max="1200" value="1000" step="10" type="range">
+				</div>
+				<div class="ui-block-c">
+					<label for="alto_pale">Alto palé:</label>
+					<input name="alto_pale" id="alto_pale"
+						   data-highlight="true"
+						   min="0" max="100" value="15" step="10" type="range">
 				</div>
 				<div class="ui-block-a">
 
 					<label for="largo_caja">Largo caja:</label>
-					<input name="largo_caja" id="largo_caja" min="0" max="1200" value="285"  type="range">
+					<input name="largo_caja" id="largo_caja"
+						   data-highlight="true"
+						   min="0" max="1200" value="285"  type="range">
 				</div>
 				<div class="ui-block-b">
 					<label for="ancho_caja">Ancho caja:</label>
-					<input name="ancho_caja" id="ancho_caja" min="0" max="1200" value="210"  type="range">
+					<input name="ancho_caja" id="ancho_caja"
+						   data-highlight="true"
+						   min="0" max="1200" value="210"  type="range">
+				</div>
+				<div class="ui-block-c">
+					<label for="alto_caja">Alto caja:</label>
+					<input name="alto_caja" id="alto_caja"
+						   data-highlight="true"
+						   min="0" max="1000" value="320"  type="range">
 				</div>
 			</div>
 			<div id="informe">
 				
+			</div>
+			<br/>
+			<div id="el_canvas" style="margin-left: auto">
+				<canvas id="lienzo" width="1000px" height="1200px"
+				style="border:1px solid #000000;"></canvas>
 			</div>
 		</div>
 
