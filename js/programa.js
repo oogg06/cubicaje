@@ -18,10 +18,12 @@ function get_numero(control){
 }
 
 function calcular_cajas(){
+    var escala=2
     //Cargamos el canvas y lo borramos
     var canvas = document.getElementById("lienzo");
     var ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.font = "11px Arial";
     ctx.beginPath()
 
     var superficie_caja, superficie_pale    ;
@@ -31,9 +33,14 @@ function calcular_cajas(){
     var int_ancho_caja  =   get_numero ( ancho_caja )    ;
     var int_largo_caja  =   get_numero ( largo_caja )    ;
     
+    if (int_ancho_caja > int_largo_caja){
+        aux=int_largo_caja;
+        int_largo_caja = int_ancho_caja;
+        int_ancho_caja = aux;
+    }
     superficie_pale=int_ancho_pale * int_largo_pale ;
     superficie_caja=int_ancho_caja * int_largo_caja ;
-    var posibles_cajas = superficie_pale / superficie_caja      ;
+    posibles_cajas = superficie_pale / superficie_caja      ;
     var num_cajas_teoricas=Math.trunc(posibles_cajas)           ;
     var dimensiones_cajas=[];
     for (var i=0; i<num_cajas_teoricas; i++){               
@@ -44,12 +51,18 @@ function calcular_cajas(){
     var empaquetador = new Packer(ancho_pale.val(), largo_pale.val());
     dimensiones_cajas.sort(function(a,b) { return (b.h < a.h); });
     empaquetador.fit(dimensiones_cajas);
-
+    var num_caja=1;
     for (var n=0; n<dimensiones_cajas.length; n++){
         var c=dimensiones_cajas[n];
+        
         if (c.fit) {
-            ctx.rect(c.fit.x, c.fit.y, c.w, c.h);
-            ctx.stroke()
+            var cx_texto=c.fit.x + (c.w/2);
+            var cy_texto=c.fit.y+ (c.h/2);
+            ctx.rect(c.fit.x / escala , c.fit.y / escala ,
+                     c.w / escala , c.h / escala );
+            ctx.fillText(num_caja, cx_texto / escala , cy_texto / escala)
+            ctx.stroke();
+            num_caja = num_caja + 1;
         }
     }
 }
