@@ -53,7 +53,24 @@
 		<div data-role="content">
 			<div class="ui-grid-b">
 				<div class="ui-block-a">
-
+					<label for="largo_camion">Largo camion:</label>
+					<input name="largo_camion"
+						   data-highlight="true"
+						   id="largo_camion" min="0" max="5000"
+						   value="1200" step="10" type="range">
+				</div>
+				<div class="ui-block-b">
+					<label for="ancho_camion">Ancho camion:</label>
+					<input name="ancho_camion" data-highlight="true"
+						id="ancho_camion" min="0" max="3000" value="1000" step="10" type="range">
+				</div>
+				<div class="ui-block-c">
+					<label for="alto_camion">Alto camion:</label>
+					<input name="alto_camion" id="alto_camion"
+						   data-highlight="true"
+						   min="0" max="4000" value="2600" step="10" type="range">
+				</div>
+				<div class="ui-block-a">
 					<label for="largo_pale">Largo palé:</label>
 					<input name="largo_pale"
 						   data-highlight="true"
