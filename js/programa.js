@@ -26,12 +26,15 @@ function calcular_cajas(){
     ctx.font = "11px Arial";
     ctx.beginPath()
 
+    
     var superficie_caja, superficie_pale    ;
     var posibles_cajas                      ;
     var int_ancho_pale  =   get_numero ( ancho_pale )    ;
     var int_largo_pale  =   get_numero ( largo_pale )    ;
     var int_ancho_caja  =   get_numero ( ancho_caja )    ;
     var int_largo_caja  =   get_numero ( largo_caja )    ;
+    
+    
     
     if (int_ancho_caja > int_largo_caja){
         aux=int_largo_caja;
@@ -51,6 +54,17 @@ function calcular_cajas(){
     var empaquetador = new Packer(ancho_pale.val(), largo_pale.val());
     dimensiones_cajas.sort(function(a,b) { return (b.h < a.h); });
     empaquetador.fit(dimensiones_cajas);
+    
+    
+    //if (int_ancho_pale < int_largo_pale){
+    //    aux=int_ancho_pale;
+    //    int_ancho_pale=int_largo_pale;
+    //    int_largo_pale=aux;
+    //}
+    //Dibujamos el rectangulo del pale
+    ctx.rect(0, 0, int_ancho_pale / escala, int_largo_pale  / escala);
+    
+    
     var num_caja=1;
     for (var n=0; n<dimensiones_cajas.length; n++){
         var c=dimensiones_cajas[n];
