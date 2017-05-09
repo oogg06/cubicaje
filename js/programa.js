@@ -98,7 +98,6 @@ function get_posibles_niveles_cajas(){
     
     var altura_del_camion = get_numero ( alto_camion );
     
-    alert (altura_del_camion)
     var niveles= altura_del_camion / int_alto_caja;
     return Math.trunc(niveles);
 }
